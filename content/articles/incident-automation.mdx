@@ -1,0 +1,28 @@
+---
+title: "Incident automation that actually helps"
+date: "2024-04-10"
+summary: "Lessons learned from building incident automation that keeps engineers in the loop."
+category: "Reliability"
+tags:
+  - Automation
+  - On-call
+---
+
+Keeping humans in the loop matters most when stakes are high. In this post I walk through the
+workflow I used to automate incident response without removing engineering judgment.
+
+## Build trust before full automation
+
+Start with **read-only automation** that collects diagnostics and enriches timelines. Once the
+team trusts the data, graduate to runbooks that can be triggered with explicit approvals.
+
+### A simple Slack trigger
+
+```bash
+/incident create "API latency spike" --service checkout --severity sev2
+```
+
+## Measure the outcomes
+
+Track the impact of automation on **mean time to recovery** and analyst workload. You should see
+fewer escalations and clearer ownership hand-offs.
